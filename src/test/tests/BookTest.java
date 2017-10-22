@@ -25,8 +25,7 @@ public class BookTest {
         ArrayList<Chapter> chapters = new ArrayList<>();
         chapters.add(new Chapter((short)2, "Intro", "Hi!"));
         Book book = new Book((short)914, "The Book", "Me", chapters);
-        Book bookSame = new Book((short)914, "The Book", "Me",
-                new ArrayList<Chapter>() {{add(new Chapter((short)2, "Intro", "Hi!"));}});
+        Book bookSame = new Book((short)914, "The Book", "Me", chapters);
         assertEquals(true, book.equals(bookSame));
     }
     @Test
