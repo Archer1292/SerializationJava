@@ -7,9 +7,7 @@ public class Book {
     private short pageCount;
     private String name;
     private String author;
-    public List<Chapter> getChapters() {
-        return chapters;
-    }
+    private List<Chapter> chapters;
 
     public short getPageCount() {
         return pageCount;
@@ -20,7 +18,9 @@ public class Book {
     public String getAuthor() {
         return author;
     }
-    private List<Chapter> chapters;
+    public List<Chapter> getChapters() {
+        return chapters;
+    }
 
     public Book() {this((short) 0, "Unknown", "Unknown");}
     public Book(short pageCount, String name, String author) {
