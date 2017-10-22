@@ -47,4 +47,27 @@ public class Book {
     public String toString() {
         return "\'" + name + "\' written by " + author + ", " + chapters.size() + " chapters";
     }
+
+    public Book clone() {
+        ArrayList<Chapter> chapters = new ArrayList<>();
+        for (Chapter chapter:this.chapters)
+            chapters.add(chapter.clone());
+        return new Book(pageCount, name, author, chapters);
+    }
+
+    public boolean equals(Book book) {
+        if (this.pageCount == book.pageCount && this.name.equals(book.name) && this.author.equals(book.author)
+            && this.chapters.size() == book.chapters.size()) {
+            for (int i = 0; i < this.chapters.size(); i++)
+                if (!chapters.get(i).equals(book.chapters.get(i)))
+                    return false;
+            return true;
+        }
+
+        return false;
+    }
+    @Override
+    public boolean equals(Object object) {
+        return (object instanceof Book) && (this.equals((Book)object));
+    }
 }

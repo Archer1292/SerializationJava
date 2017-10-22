@@ -1,76 +1,45 @@
 package serialization;
 
 import org.json.simple.parser.ParseException;
-
 import java.io.IOException;
 
 public class Main {
     public static void main(String args[]){
-        Book book = new Book((short)200, "myBook", "me");
-        book.addChapter(new Chapter((short)1, "Introduction", "bla-bla"));
-        book.addChapter((short)3, "Content", "bla-bla");
+        Book bookOriginal = new Book((short)200, "myBook", "me");
+        bookOriginal.addChapter(new Chapter((short)1, "Introduction", "bla-bla"));
+        bookOriginal.addChapter((short)3, "Content", "bla-bla");
 
-        jacksonWrite(book);
-        book = jacksonRead();
-        System.out.println("jack: " + book);
+        Book bookCopied = bookOriginal.clone();
+        Serializable tester;
 
-        gsonWrite(book);
-        book = gsonRead();
-        System.out.println("JSON: " + book);
+        tester = new JacksonSerialization();
+        testSerialization(bookOriginal, bookCopied, tester);
 
-        jsonWrite(book);
-        book = jsonRead();
-        System.out.println("JSON: " + book);
+        tester = new GSONSerialization();
+        testSerialization(bookOriginal, bookCopied, tester);
+
+        tester = new JSONSerialization();
+        testSerialization(bookOriginal, bookCopied, tester);
     }
 
-    private static void jacksonWrite(Book book) {
-        JacksonSerialization tester = new JacksonSerialization();
+    private static void testSerialization(Book bookOriginal, Book bookCopied, Serializable tester) {
+        toFile(tester, bookCopied);
+        bookCopied = fromFile(tester);
+        if (!bookOriginal.equals(bookCopied))
+            System.out.println("ERROR");
+    }
+
+    private static void toFile(Serializable tester, Book book) {
         try {
             tester.bookSerialize(book);
         }
-        catch (IOException e) { e.printStackTrace(); }
-    }
-    private static Book jacksonRead() {
-        JacksonSerialization tester = new JacksonSerialization();
-        Book book = new Book();
-        try {
-             book = tester.bookDeserialize();
-        }
-        catch (IOException e) { e.printStackTrace(); }
-        return book;
-    }
+        catch (IOException e) { e.printStackTrace(); }}
 
-    private static void gsonWrite(Book book) {
-        GSONSerialization tester = new GSONSerialization();
-        try {
-            tester.bookSerialize(book);
-        }
-        catch (IOException e) { e.printStackTrace(); }
-    }
-    private static Book gsonRead() {
-        GSONSerialization tester = new GSONSerialization();
-        Book book = new Book();
-        try {
-            book = tester.bookDeserialize();
-        }
-        catch (IOException e) { e.printStackTrace(); }
-        return book;
-    }
-
-    private static void jsonWrite(Book book) {
-        JSONSerialization tester = new JSONSerialization();
-        try {
-            tester.bookSerialize(book);
-        }
-        catch (IOException e) { e.printStackTrace(); }
-    }
-    private static Book jsonRead() {
-        JSONSerialization tester = new JSONSerialization();
+    private static Book fromFile(Serializable tester) {
         Book book = new Book();
         try {
             book = tester.bookDeserialize();
         }
         catch (IOException | ParseException e) { e.printStackTrace(); }
-        return book;
-    }
+        return book;}
 }
