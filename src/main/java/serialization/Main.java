@@ -12,8 +12,8 @@ public class Main {
         book = jacksonRead();
         System.out.println("jack: " + book);
 
-        jsonWrite(book);
-        book = jsonRead();
+        gsonWrite(book);
+        book = gsonRead();
         System.out.println("JSON: " + book);
     }
 
@@ -34,15 +34,15 @@ public class Main {
         return book;
     }
 
-    private static void jsonWrite(Book book) {
-        JSONSerialization tester = new JSONSerialization();
+    private static void gsonWrite(Book book) {
+        GSONSerialization tester = new GSONSerialization();
         try {
             tester.bookSerialize(book);
         }
         catch (IOException e) { e.printStackTrace(); }
     }
-    private static Book jsonRead() {
-        JSONSerialization tester = new JSONSerialization();
+    private static Book gsonRead() {
+        GSONSerialization tester = new GSONSerialization();
         Book book = new Book();
         try {
             book = tester.bookDeserialize();

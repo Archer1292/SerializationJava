@@ -7,7 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 
-public class JSONSerialization implements Serializable {
+public class GSONSerialization implements Serializable {
     @Override
     public void bookSerialize(Book book) throws IOException {
         try (Writer writer = new FileWriter("bookJSON.json")) {
