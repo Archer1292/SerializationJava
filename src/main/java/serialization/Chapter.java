@@ -6,10 +6,10 @@ public class Chapter {
     }
     private short page;
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
-    private String name;
+    private String title;
 
     public String getText() {
         return text;
@@ -17,10 +17,10 @@ public class Chapter {
     private String text;
 
     public Chapter () {this((short)0, "Unknown", "Unknown");}
-    public Chapter(short page, String name, String text) {
+    public Chapter(short page, String title, String text) {
         if (page > 0)
             this.page = page;
-        this.name = name;
+        this.title = title;
         this.text = text;
     }
 }

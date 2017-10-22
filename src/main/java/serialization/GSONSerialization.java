@@ -5,12 +5,11 @@ import com.google.gson.Gson;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
 
 public class GSONSerialization implements Serializable {
     @Override
     public void bookSerialize(Book book) throws IOException {
-        try (Writer writer = new FileWriter("bookJSON.json")) {
+        try (FileWriter writer = new FileWriter("bookGSON.json")) {
             Gson gson = new Gson();
             gson.toJson(book, writer);
         }
@@ -18,7 +17,7 @@ public class GSONSerialization implements Serializable {
 
     @Override
     public Book bookDeserialize() throws IOException {
-        try (FileReader reader = new FileReader("bookJSON.json")) {
+        try (FileReader reader = new FileReader("bookGSON.json")) {
             Gson gson = new Gson();
             return gson.fromJson(reader, Book.class);
         }

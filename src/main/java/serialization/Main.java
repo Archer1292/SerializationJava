@@ -1,5 +1,7 @@
 package serialization;
 
+import org.json.simple.parser.ParseException;
+
 import java.io.IOException;
 
 public class Main {
@@ -14,6 +16,10 @@ public class Main {
 
         gsonWrite(book);
         book = gsonRead();
+        System.out.println("JSON: " + book);
+
+        jsonWrite(book);
+        book = jsonRead();
         System.out.println("JSON: " + book);
     }
 
@@ -48,6 +54,23 @@ public class Main {
             book = tester.bookDeserialize();
         }
         catch (IOException e) { e.printStackTrace(); }
+        return book;
+    }
+
+    private static void jsonWrite(Book book) {
+        JSONSerialization tester = new JSONSerialization();
+        try {
+            tester.bookSerialize(book);
+        }
+        catch (IOException e) { e.printStackTrace(); }
+    }
+    private static Book jsonRead() {
+        JSONSerialization tester = new JSONSerialization();
+        Book book = new Book();
+        try {
+            book = tester.bookDeserialize();
+        }
+        catch (IOException | ParseException e) { e.printStackTrace(); }
         return book;
     }
 }
