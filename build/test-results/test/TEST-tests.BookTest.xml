@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.BookTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2017-10-22T22:03:48" hostname="PC" time="0.046">
+  <properties/>
+  <testcase name="testEmptyClone" classname="tests.BookTest" time="0.011"/>
+  <testcase name="equals" classname="tests.BookTest" time="0.013"/>
+  <testcase name="testClone" classname="tests.BookTest" time="0.003"/>
+  <testcase name="testToString" classname="tests.BookTest" time="0.0"/>
+  <testcase name="equalsEmpty" classname="tests.BookTest" time="0.0"/>
+  <testcase name="notEqualsWithChapters" classname="tests.BookTest" time="0.0"/>
+  <testcase name="notEquals" classname="tests.BookTest" time="0.0"/>
+  <testcase name="createWIthNegativePage" classname="tests.BookTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
