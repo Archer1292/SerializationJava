@@ -23,7 +23,7 @@ public class JSONSerialization implements Serializable {
     public Book bookDeserialize() throws IOException, ParseException {
         JSONParser jsonParser = new JSONParser();
         Object object = jsonParser.parse(new FileReader("bookJSON.json"));
-        org.json.simple.JSONObject jsonObject = (org.json.simple.JSONObject) object;
+        JSONObject jsonObject = (JSONObject) object;
 
         org.json.simple.JSONArray jsonArray = (org.json.simple.JSONArray) jsonObject.get("chapters");
         ArrayList<Chapter> chapters = new ArrayList<>();
