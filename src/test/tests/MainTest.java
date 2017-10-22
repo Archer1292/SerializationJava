@@ -10,7 +10,7 @@ public class MainTest {
     public void main() throws Exception {
         Main main = new Main();
         SystemOutRule rule = new SystemOutRule().enableLog();
-        Main.main(null);
+        main.main(null);
         assertEquals(false, rule.getLog().contains("ERROR"));
     }
 }
