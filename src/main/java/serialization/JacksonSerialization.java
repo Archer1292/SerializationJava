@@ -2,7 +2,6 @@ package serialization;
 
 import java.io.File;
 import java.io.IOException;
-
 import org.codehaus.jackson.map.*;
 
 public class JacksonSerialization implements Serializable {

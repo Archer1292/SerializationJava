@@ -26,7 +26,8 @@ public class Book {
 
     public Book() {this((short) 0, "Unknown", "Unknown");}
     public Book(short pageCount, String name, String author) {
-        this.pageCount = pageCount;
+        if (pageCount > 0)
+            this.pageCount = pageCount;
         this.name = name;
         this.author =  author;
         chapters = new ArrayList<>();
@@ -45,7 +46,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "\'" + name + "\' written by " + author + ", " + chapters.size() + " chapters";
+        return "\'" + name + "\' written by " + author + ", " + chapters.size() + " chapter(s)";
     }
 
     public Book clone() {

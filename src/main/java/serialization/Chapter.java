@@ -26,11 +26,13 @@ public class Chapter {
 
     public Chapter clone() { return new Chapter(this.page, this.title, this.text); }
 
-    public boolean equals(Chapter chapter) {
-        if (this.page == chapter.page && this.title.equals(chapter.title) && this.text.equals(chapter.text))
-            return true;
+    @Override
+    public String toString() {
+        return "\'" + title + "\' at page " + page;
+    }
 
-        return false;
+    public boolean equals(Chapter chapter) {
+        return this.page == chapter.page && this.title.equals(chapter.title) && this.text.equals(chapter.text);
     }
     @Override
     public boolean equals(Object object) {
