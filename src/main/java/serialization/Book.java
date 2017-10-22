@@ -4,20 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Book {
+    private short pageCount;
+    private String name;
+    private String author;
+
     public short getPageCount() {
         return pageCount;
     }
-    private short pageCount;
-
     public String getName() {
         return name;
     }
-    private String name;
-
     public String getAuthor() {
         return author;
     }
-    private String author;
 
     public List<Chapter> getChapters() {
         return chapters;
