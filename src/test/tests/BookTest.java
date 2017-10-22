@@ -22,28 +22,32 @@ public class BookTest {
     }
     @Test
     public void equals() throws Exception {
-        Book book = new Book((short)914, "The Book", "Me",
-                new ArrayList<Chapter>() {{add(new Chapter((short)2, "Intro", "Hi!"));}});
+        ArrayList<Chapter> chapters = new ArrayList<>();
+        chapters.add(new Chapter((short)2, "Intro", "Hi!"));
+        Book book = new Book((short)914, "The Book", "Me", chapters);
         Book bookSame = new Book((short)914, "The Book", "Me",
                 new ArrayList<Chapter>() {{add(new Chapter((short)2, "Intro", "Hi!"));}});
         assertEquals(true, book.equals(bookSame));
     }
     @Test
     public void notEquals() throws Exception {
-        Book book = new Book((short)914, "The Book", "Me",
-                new ArrayList<Chapter>() {{add(new Chapter((short)2, "Intro", "Hi!"));}});
-        Book bookNotSame = new Book((short)914, "The Book 2", "Me",
-                new ArrayList<Chapter>() {{add(new Chapter((short)2, "Intro", "Hi!"));}});
+        ArrayList<Chapter> chapters = new ArrayList<>();
+        chapters.add(new Chapter((short)2, "Intro", "Hi!"));
+        Book book = new Book((short)914, "The Book", "Me", chapters);
+        Book bookNotSame = new Book((short)914, "The Book 2", "Me", chapters);
         assertEquals(false, book.equals(bookNotSame) & book.equals(new Object()));
     }
     @Test
     public void notEqualsWithChapters() throws Exception {
-        Book book = new Book((short)914, "The Book", "Me",
-                new ArrayList<Chapter>() {{add(new Chapter((short)2, "Intro", "Hi!"));
-                                           add(new Chapter((short)5, "Chapter1", "It was..!"));}});
-        Book bookNotSame = new Book((short)914, "The Book", "Me",
-                new ArrayList<Chapter>() {{add(new Chapter((short)2, "Intro", "Hi!"));
-                                           add(new Chapter((short)5, "Chapter1", "It is..!"));}});
+        ArrayList<Chapter> chapters = new ArrayList<>();
+        chapters.add(new Chapter((short)2, "Intro", "Hi!"));
+        chapters.add(new Chapter((short)5, "Chapter1", "It was..!"));
+        Book book = new Book((short)914, "The Book", "Me", chapters);
+
+        ArrayList<Chapter> chaptersNotSame = new ArrayList<>();
+        chaptersNotSame.add(new Chapter((short)2, "Intro", "Hi!"));
+        chaptersNotSame.add(new Chapter((short)5, "Chapter1", "It is..!"));
+        Book bookNotSame = new Book((short)914, "The Book", "Me", chaptersNotSame);
         assertEquals(false, book.equals(bookNotSame));
     }
     @Test
@@ -54,15 +58,17 @@ public class BookTest {
     }
     @Test
     public void testClone() throws Exception {
-        Book book = new Book((short)644, "Chapter5", "To be continued",
-                new ArrayList<Chapter>() {{add(new Chapter((short)2, "Intro", "Hi!"));}});
+        ArrayList<Chapter> chapters = new ArrayList<>();
+        chapters.add(new Chapter((short)2, "Intro", "Hi!"));
+        Book book = new Book((short)644, "Chapter5", "To be continued", chapters);
         Book bookCloned = book.clone();
         assertEquals(true, book.equals(bookCloned));
     }
     @Test
     public void testToString() throws Exception {
-        Book book = new Book((short)192, "The Book", "Me",
-                new ArrayList<Chapter>() {{add(new Chapter((short)2, "Intro", "Hi!"));}});
+        ArrayList<Chapter> chapters = new ArrayList<>();
+        chapters.add(new Chapter((short)2, "Intro", "Hi!"));
+        Book book = new Book((short)192, "The Book", "Me", chapters);
         assertEquals("'The Book' written by Me, 1 chapter(s)", book.toString());
     }
 }
