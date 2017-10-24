@@ -46,8 +46,6 @@ public class GSONSerialization implements Serializable {
                     Number num = prim.getAsNumber();
                     if(Math.ceil(num.doubleValue())  == num.shortValue())
                         return num.shortValue();
-                    else
-                        return num.doubleValue();
                 }
             }
             return null;
