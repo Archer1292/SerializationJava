@@ -3,7 +3,6 @@ package serialization;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,7 +13,8 @@ public class JSONSerialization implements Serializable {
     public void bookSerialize(Book book) throws IOException {
         try (FileWriter writer = new FileWriter("bookJSON.json")) {
             org.json.JSONObject jsonObject = new org.json.JSONObject(book);
-            jsonObject.write(writer);
+            writer.write(jsonObject.toString(4));
+            //jsonObject.write(writer);
         }
     }
 
