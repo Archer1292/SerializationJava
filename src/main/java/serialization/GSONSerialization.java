@@ -30,14 +30,7 @@ public class GSONSerialization implements Serializable {
         }
 
         Object read(JsonElement element) {
-            if (element.isJsonArray()) {
-                List<Object> list = new ArrayList<>();
-                JsonArray arr = element.getAsJsonArray();
-                for (JsonElement arrElement : arr)
-                    list.add(read(arrElement));
-                return list;
-            }
-            else if (element.isJsonObject()){
+            if (element.isJsonObject()){
                 Map<String, Object> map = new LinkedTreeMap<>();
                 JsonObject obj = element.getAsJsonObject();
                 Set<Map.Entry<String, JsonElement>> entitySet = obj.entrySet();
@@ -47,12 +40,8 @@ public class GSONSerialization implements Serializable {
             }
             else if (element.isJsonPrimitive()) {
                 JsonPrimitive prim = element.getAsJsonPrimitive();
-                if (prim.isBoolean())
-                    return prim.getAsBoolean();
-
-                else if (prim.isString())
+                if (prim.isString())
                     return prim.getAsString();
-
                 else if (prim.isNumber()) {
                     Number num = prim.getAsNumber();
                     if(Math.ceil(num.doubleValue())  == num.shortValue())
