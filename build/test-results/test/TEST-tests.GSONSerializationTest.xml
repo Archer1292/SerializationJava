@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tests.GSONSerializationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-10-22T22:03:48" hostname="PC" time="0.489">
+<testsuite name="tests.GSONSerializationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-10-24T21:14:17" hostname="PC" time="0.468">
   <properties/>
-  <testcase name="serializationEmpty" classname="tests.GSONSerializationTest" time="0.474"/>
-  <testcase name="serialization" classname="tests.GSONSerializationTest" time="0.015"/>
+  <testcase name="serializationEmpty" classname="tests.GSONSerializationTest" time="0.45"/>
+  <testcase name="serialization" classname="tests.GSONSerializationTest" time="0.013"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

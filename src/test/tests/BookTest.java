@@ -34,7 +34,7 @@ public class BookTest {
         chapters.add(new Chapter((short)2, "Intro", "Hi!"));
         Book book = new Book((short)914, "The Book", "Me", chapters);
         Book bookNotSame = new Book((short)914, "The Book 2", "Me", chapters);
-        assertEquals(false, book.equals(bookNotSame) & book.equals(new Object()));
+        assertEquals(false, book.equals(bookNotSame));
     }
     @Test
     public void notEqualsWithChapters() throws Exception {
@@ -68,6 +68,6 @@ public class BookTest {
         ArrayList<Chapter> chapters = new ArrayList<>();
         chapters.add(new Chapter((short)2, "Intro", "Hi!"));
         Book book = new Book((short)192, "The Book", "Me", chapters);
-        assertEquals("'The Book' written by Me, 1 chapter(s)", book.toString());
+        assertEquals("'The Book' written by Me, 1 chapter(s), 192p.", book.toString());
     }
 }

@@ -26,7 +26,7 @@ public class ChapterTest {
     public void notEquals() throws Exception {
         Chapter chapter = new Chapter((short)644, "Chapter5", "To be continued");
         Chapter chapterNotSame = new Chapter((short)200, "Chapter3", "To be continued");
-        assertEquals(false, chapter.equals(chapterNotSame) & chapter.equals(new Object()));
+        assertEquals(false, chapter.equals(chapterNotSame));
     }
     @Test
     public void testEmptyClone() throws Exception {

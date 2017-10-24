@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tests.MainTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-10-22T22:03:50" hostname="PC" time="0.562">
+<testsuite name="tests.MainTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-10-24T21:14:19" hostname="PC" time="0.429">
   <properties/>
-  <testcase name="main" classname="tests.MainTest" time="0.562"/>
+  <testcase name="main" classname="tests.MainTest" time="0.429"/>
   <system-out><![CDATA[serialization.JacksonSerialization
-43809598 nanosec
-Memory used: 3967824 B 
-30013976 nanosec
-Memory used: 3003280 B 
-35997452 nanosec
-Memory used: 3003744 B 
+70251444 nanosec
+Memory used: 3132400 B 
+27989734 nanosec
+Memory used: 3180488 B 
+36871684 nanosec
+Memory used: 3091856 B 
 serialization.GSONSerialization
-10284382 nanosec
-Memory used: 3146384 B 
-6406080 nanosec
-Memory used: 3145232 B 
-5466087 nanosec
-Memory used: 3004128 B 
+24555163 nanosec
+Memory used: 3182576 B 
+3718924 nanosec
+Memory used: 3182576 B 
+6149507 nanosec
+Memory used: 3258176 B 
 serialization.JSONSerialization
-14966237 nanosec
-Memory used: 3003992 B 
-3409211 nanosec
-Memory used: 3004352 B 
-4195859 nanosec
-Memory used: 3147072 B 
+2511481 nanosec
+Memory used: 3090208 B 
+2289312 nanosec
+Memory used: 3182840 B 
+1981413 nanosec
+Memory used: 3090248 B 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
