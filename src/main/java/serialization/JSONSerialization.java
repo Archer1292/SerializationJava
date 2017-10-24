@@ -14,7 +14,6 @@ public class JSONSerialization implements Serializable {
         try (FileWriter writer = new FileWriter("bookJSON.json")) {
             org.json.JSONObject jsonObject = new org.json.JSONObject(book);
             writer.write(jsonObject.toString(4));
-            //jsonObject.write(writer);
         }
     }
 

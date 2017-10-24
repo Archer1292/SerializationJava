@@ -7,9 +7,9 @@ import java.util.List;
 
 public class Book {
     private short pageCount;
-    private String name;
-    private String author;
-    private List<Chapter> chapters;
+    final private String name;
+    final private String author;
+    final private List<Chapter> chapters;
     private Map<String, Object> map;
 
     public short getPageCount() {
@@ -43,6 +43,7 @@ public class Book {
             this.chapters = chapters;
         initMap();
     }
+    @SuppressWarnings("unchecked")
     private void initMap() {
         map = new HashMap();
         map.put("pageCount", pageCount);
@@ -62,7 +63,6 @@ public class Book {
         return "\'" + name + "\' written by " + author + ", " + chapters.size() + " chapter(s), " + pageCount + "p.";
     }
 
-    @Override
     public Book clone() {
         ArrayList<Chapter> chapters = new ArrayList<>();
         for (Chapter chapter:this.chapters)
