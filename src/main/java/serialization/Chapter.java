@@ -23,6 +23,7 @@ public class Chapter {
         this.text = text;
     }
 
+    @Override
     public Chapter clone() { return new Chapter(this.page, this.title, this.text); }
 
     @Override
