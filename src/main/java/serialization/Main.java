@@ -29,10 +29,10 @@ public class Main {
             time = System.nanoTime();
             toFile(tester, bookCopied);
             bookCopied = fromFile(tester);
-            if (!bookOriginal.equals(bookCopied))
-                System.out.println("ERROR");
             System.out.println((System.nanoTime() - time) + " nanosec");
             memoryConsumption();
+            if (!bookOriginal.equals(bookCopied))
+                System.out.println("ERROR");
         }
     }
 
