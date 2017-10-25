@@ -20,13 +20,17 @@ public class ChapterTest {
     public void equals() throws Exception {
         Chapter chapter = new Chapter((short)644, "Chapter5", "To be continued");
         Chapter chapterSame = new Chapter((short)644, "Chapter5", "To be continued");
-        assertEquals(true, chapter.equals(chapterSame));
+        Object chapter2 = new Chapter((short)644, "Chapter5", "To be continued");
+        Object chapterSame2 = new Chapter((short)644, "Chapter5", "To be continued");
+        assertEquals(true, chapter.equals(chapterSame) && chapter2.equals(chapterSame2));
     }
     @Test
     public void notEquals() throws Exception {
         Chapter chapter = new Chapter((short)644, "Chapter5", "To be continued");
         Chapter chapterNotSame = new Chapter((short)200, "Chapter3", "To be continued");
-        assertEquals(false, chapter.equals(chapterNotSame));
+        Object chapter2 = new Chapter((short)644, "Chapter5", "To be continued");
+        Object chapterNotSame2 = new Chapter((short)200, "Chapter3", "To be continued");
+        assertEquals(false, chapter.equals(chapterNotSame) || chapter2.equals(chapterNotSame2));
     }
     @Test
     public void testEmptyClone() throws Exception {

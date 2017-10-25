@@ -26,7 +26,9 @@ public class BookTest {
         chapters.add(new Chapter((short)2, "Intro", "Hi!"));
         Book book = new Book((short)914, "The Book", "Me", chapters);
         Book bookSame = new Book((short)914, "The Book", "Me", chapters);
-        assertEquals(true, book.equals(bookSame));
+        Object book2 = new Book((short)914, "The Book", "Me", chapters);
+        Object bookSame2 = new Book((short)914, "The Book", "Me", chapters);
+        assertEquals(true, book.equals(bookSame) && book2.equals(bookSame2));
     }
     @Test
     public void notEquals() throws Exception {
@@ -34,7 +36,9 @@ public class BookTest {
         chapters.add(new Chapter((short)2, "Intro", "Hi!"));
         Book book = new Book((short)914, "The Book", "Me", chapters);
         Book bookNotSame = new Book((short)914, "The Book 2", "Me", chapters);
-        assertEquals(false, book.equals(bookNotSame));
+        Object book2 = new Book((short)914, "The Book", "Me", chapters);
+        Object bookNotSame2 = new Book((short)914, "The Book 2", "Me", chapters);
+        assertEquals(false, book.equals(bookNotSame) || book2.equals(bookNotSame2));
     }
     @Test
     public void notEqualsWithChapters() throws Exception {
